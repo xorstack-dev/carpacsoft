@@ -93,14 +93,16 @@ export default function SuccessPrograms() {
                 At CarpacSoft, we put client success at the forefront of everything we do. Achieve your business goals and accelerate time to value with CarpacSoft® Success Programs.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/company/contact">
+                <Link to="/other-pages/success-catalog" target="_blank">
                   <Button className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold py-4 px-10 rounded-full uppercase text-sm tracking-wide shadow-lg border-none">
-                    CONTACT US
+                    SUCCESS CATALOG
                   </Button>
                 </Link>
-                <Button className="bg-white hover:bg-slate-100 text-[#0ea5e9] font-bold py-4 px-10 rounded-full uppercase text-sm tracking-wide shadow-lg border-none">
-                  SUCCESS CATALOG
-                </Button>
+                <Link to="/resources/library" target="_blank">
+                  <Button className="bg-white hover:bg-slate-100 text-[#0ea5e9] font-bold py-4 px-10 rounded-full uppercase text-sm tracking-wide shadow-lg border-none">
+                    DATASHEETS
+                  </Button>
+                </Link>
               </div>
             </AnimatedSection>
           </div>
@@ -183,12 +185,16 @@ export default function SuccessPrograms() {
                 When you buy CarpacSoft, you're not just buying our products. Our Customer Success team stands behind you, delivering the expertise, guidance, and resources you need to see a quick return on your investment and achieve your business goals.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <Button className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold py-4 px-10 rounded-full uppercase text-sm shadow-xl border-none">
-                  USER COMMUNITY
-                </Button>
-                <Button className="bg-white hover:bg-slate-50 text-[#0ea5e9] font-bold py-4 px-10 rounded-full uppercase text-sm shadow-xl border-none">
-                  SUPPORT TEAM
-                </Button>
+                <Link to="">
+                  <Button className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold py-4 px-10 rounded-full uppercase text-sm shadow-xl border-none">
+                    USER COMMUNITY
+                  </Button>
+                </Link>
+                <Link to="/resources/support">
+                  <Button className="bg-white hover:bg-slate-50 text-[#0ea5e9] font-bold py-4 px-10 rounded-full uppercase text-sm shadow-xl border-none">
+                    SUPPORT TEAM
+                  </Button>
+                </Link>
               </div>
             </AnimatedSection>
           </div>
@@ -229,7 +235,7 @@ export default function SuccessPrograms() {
                 <span className="text-3xl font-bold tracking-tighter">Deloitte<span className="text-[#00a3cc]">.</span></span>
               </div>
 
-              <Link to="/resources/library">
+              <Link to="/resources/library" target="_blank">
                 <Button className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold py-4 px-10 rounded-full uppercase text-sm shadow-xl border-none">
                   SEE MORE CUSTOMER STORIES
                 </Button>
