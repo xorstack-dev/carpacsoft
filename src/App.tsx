@@ -75,6 +75,8 @@ import ReportG2Grid from "./pages/resources/Report-g2-grid";
 import RestApi from "./pages/other-pages/Rest-api";
 import Datasheet from "./pages/other-pages/datasheet-inte";
 import DownloadDatasheet from "./pages/other-pages/download-datasheet";
+import SuccessCatalog from "./pages/other-pages/success-catalog";
+import ConnectInAction from "./pages/other-pages/connect-in-action";
 
 const queryClient = new QueryClient();
 
@@ -118,6 +120,8 @@ const App = () => (
           <Route path="/other-pages/rest-api" element={<RestApi />} />
           <Route path="/other-pages/datasheet" element={<Datasheet />} />
           <Route path="/other-pages/download-datasheet" element={<DownloadDatasheet />} />
+          <Route path="/other-pages/success-catalog" element={<SuccessCatalog />} />
+          <Route path="/other-pages/connect-in-action" element={<ConnectInAction />} />
 
           {/* Product Routes */}
           <Route path="/product/overview" element={<Overview />} />
