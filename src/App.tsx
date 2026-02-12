@@ -70,7 +70,11 @@ import DiscoveryCenter from "./pages/resources/DiscoveryCenter";
 import Community from "./pages/resources/Community";
 import Support from "./pages/resources/Support";
 import ReportG2Grid from "./pages/resources/Report-g2-grid";
+
+//other pages
 import RestApi from "./pages/other-pages/Rest-api";
+import Datasheet from "./pages/other-pages/datasheet-inte";
+import DownloadDatasheet from "./pages/other-pages/download-datasheet";
 
 const queryClient = new QueryClient();
 
@@ -112,6 +116,8 @@ const App = () => (
           <Route path="/solutions/requirements-traceability" element={<RequirementsTraceability />} />
           <Route path="/resources/Report-g2-grid" element={<ReportG2Grid />} />
           <Route path="/other-pages/rest-api" element={<RestApi />} />
+          <Route path="/other-pages/datasheet" element={<Datasheet />} />
+          <Route path="/other-pages/download-datasheet" element={<DownloadDatasheet />} />
 
           {/* Product Routes */}
           <Route path="/product/overview" element={<Overview />} />

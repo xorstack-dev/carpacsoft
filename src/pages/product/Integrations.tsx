@@ -367,9 +367,11 @@ const Integrations = () => {
                   CarpacSoft offers a powerful REST API that allows your team to integrate and extend the capabilities of CarpacSoft. Benefit in many ways including reporting, data & trace synchronization, and test results import. Combine CarpacSoft API's simple, flexible, and easy to use framework with resources for step-by-step guidance and practical, real-world recipes that address common integration needs, offer clear best practices, and answer frequently asked questions.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="bg-[#ff6b00] hover:bg-[#e65a00] text-white font-bold px-8 py-4 rounded text-xs uppercase tracking-wider border-none">
-                    GET DATASHEET
-                  </Button>
+                  <Link to="/other-pages/datasheet" target="_blank">
+                    <Button className="bg-[#ff6b00] hover:bg-[#e65a00] text-white font-bold px-8 py-4 rounded text-xs uppercase tracking-wider border-none">
+                      GET DATASHEET
+                    </Button>
+                  </Link>
                   <Link to="/other-pages/rest-api" target="_blank">
                     <Button className="bg-[#00a7b5] hover:bg-[#00929e] text-white font-bold px-8 py-4 rounded text-xs uppercase tracking-wider border-none">
                       GET STARTED

@@ -749,7 +749,7 @@ const Features = () => {
 
                   {/* CTA Buttons */}
                   <div className="flex flex-wrap gap-5">
-                    <Link to={activeTab.learnMoreLink}>
+                    <Link to="/resources/library" target="_blank">
                       <Button variant="outline" className="rounded-full border-[#00A3E0] text-[#00A3E0] hover:bg-sky-50 px-10 py-7 font-bold text-sm tracking-widest transition-all uppercase">
                         LEARN MORE
                       </Button>

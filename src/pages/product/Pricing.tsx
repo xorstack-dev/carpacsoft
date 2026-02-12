@@ -283,7 +283,7 @@ const Pricing = () => {
             </div>
 
             <div className="text-center mt-12">
-              <Link to="/resources/datasheet">
+              <Link to="/other-pages/download-datasheet" target="_blank">
                 <Button className="bg-[#051c2c] hover:bg-black text-white font-bold px-8 py-3 rounded-full text-xs uppercase tracking-wider">
                   DOWNLOAD DATASHEET
                 </Button>
