@@ -1,0 +1,91 @@
+name: Build and Deploy React to cPanel
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for creating releases
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for versioning
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Generate version tag
+        id: version
+        run: |
+          # Generate version based on date and incremental build number
+          DATE=$(date +'%Y.%m.%d')
+
+          # Fetch existing tags to find today's builds
+          git fetch --tags || true
+
+          # Count how many builds exist for today
+          BUILD_COUNT=$(git tag -l "v${DATE}-v*" | wc -l)
+
+          # Increment to get next build number
+          BUILD_NUM=$((BUILD_COUNT + 1))
+
+          VERSION="v${DATE}-v${BUILD_NUM}"
+          echo "tag=$VERSION" >> $GITHUB_OUTPUT
+          echo "Generated version: $VERSION"
+
+      - name: Create build archive
+        run: |
+          cd dist
+          zip -r ../build-${{ steps.version.outputs.tag }}.zip .
+          cd ..
+          echo "Archive created: build-${{ steps.version.outputs.tag }}.zip"
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          body: |
+            ## Automated Build Release
+
+            **Build Date:** ${{ github.event.head_commit.timestamp }}
+            **Commit:** ${{ github.sha }}
+            **Branch:** ${{ github.ref_name }}
+
+            ### Changes
+            ${{ github.event.head_commit.message }}
+
+            ### Deployment
+            This build has been automatically deployed to cPanel.
+
+            Download the `build-*.zip` file below to manually deploy or inspect the production build.
+          draft: false
+          prerelease: false
+          files: |
+            build-${{ steps.version.outputs.tag }}.zip
+
+      - name: Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /
+          dangerous-clean-slate: false  # Don't delete all files before upload

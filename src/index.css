@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Jama Software Design System - All colors in HSL */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 29% 24%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 29% 24%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 29% 24%;
+
+    /* Jama Navy Blue */
+    --primary: 210 54% 24%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Blue/Gray */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 54% 24%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Light Blue Accent */
+    --accent: 200 80% 96%;
+    --accent-foreground: 210 54% 24%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 54% 24%;
+
+    --radius: 0.5rem;
+
+    /* Jama Orange - Primary CTA */
+    --jama-orange: 26 91% 54%;
+    --jama-orange-hover: 20 91% 48%;
+    --jama-orange-light: 26 91% 60%;
+    
+    /* Jama Navy - Primary Brand */
+    --jama-navy: 210 54% 24%;
+    --jama-navy-dark: 210 60% 18%;
+    --jama-navy-light: 210 45% 35%;
+    
+    /* Jama Light Blue - Backgrounds */
+    --jama-light-blue: 200 80% 96%;
+    --jama-sky: 200 70% 92%;
+    
+    /* Jama Grays */
+    --jama-gray: 215 16% 47%;
+    --jama-gray-light: 210 20% 80%;
+    --jama-gray-dark: 210 20% 30%;
+
+    /* Sidebar */
+    --sidebar-background: 210 54% 24%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 26 91% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 45% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 45% 35%;
+    --sidebar-ring: 26 91% 54%;
+  }
+
+  .dark {
+    --background: 210 54% 12%;
+    --foreground: 0 0% 95%;
+
+    --card: 210 54% 16%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 210 54% 16%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 26 91% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 45% 25%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 210 45% 25%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 210 45% 25%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 210 45% 25%;
+    --input: 210 45% 25%;
+    --ring: 26 91% 54%;
+
+    --sidebar-background: 210 60% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 26 91% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 45% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 210 45% 20%;
+    --sidebar-ring: 26 91% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-jama-navy font-bold;
+  }
+}
+
+@layer utilities {
+  .gradient-orange {
+    background: linear-gradient(135deg, hsl(var(--jama-orange)) 0%, hsl(20, 91%, 48%) 100%);
+  }
+  
+  .gradient-navy {
+    background: linear-gradient(135deg, hsl(var(--jama-navy)) 0%, hsl(210, 60%, 18%) 100%);
+  }
+  
+  .text-gradient-orange {
+    background: linear-gradient(135deg, hsl(var(--jama-orange)) 0%, hsl(20, 91%, 48%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
